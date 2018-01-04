@@ -21,9 +21,9 @@ function updateHtml() {
 
   // Create the new program HTML
   var programHtml = `
-    <div class="coaching-program-callout budget_basic" style="margin-bottom: 20px;">
-      <a href="/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DBudget+Basics%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life" target="_blank">
-        <img src="https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/hp-tile-budget-basics.png" alt="" style="width: 100%">
+    <div class="coaching-program-callout ${targetClass}" style="margin-bottom: 20px;">
+      <a href="${programLink}" target="_blank">
+        <img src="${programImage}" alt="" style="width: 100%">
       </a>
     </div>
   `;
@@ -44,32 +44,58 @@ function updateHtml() {
 // Obtains id, displaypriority, and point value. Uses updated values to send
 // an upload request to Limeade
 function getInfo(updatedHtml) {
-  const cieValues = [
-    employerName,,tileTitle,,'IncentivePoints',0,,0,0,
-    0,1,0,0,0,,,tileImageUrl,1,,,,,,,,,,,,,
-  ];
-
 	const nodes = [].slice.call(document.querySelectorAll('#otherthings .item-title'));
 	const url = window.location.href;
-	const id = url.substring(url.search('=') + 1, url.length);
+	const eventId = url.substring(url.search('=') + 1, url.length);
 
-	let points;
+	let pointsAwarded;
   try {
-    points = document.querySelector('.info-reward span').innerText;
+    pointsAwarded = document.querySelector('.info-reward span').innerText.replace(',', '');
   } catch (e) {
-    points = 0;
+    pointsAwarded = 0;
   }
 
-	let priority;
+	let displayPriority;
 	nodes.map((tile, i) => {
 		if (tile.querySelector('h3').innerHTML === tileTitleHtml) {
-			priority = i + 1;
+			displayPriority = i + 1;
 		}
 	});
-	cieValues[1] = id;
-	cieValues[3] = priority;
-	cieValues[5] = points;
-  cieValues[23] = sanitize(updatedHtml);
+
+  const cieValues = [
+    employerName,
+    eventId,
+    tileTitle,
+    displayPriority,
+    'IncentivePoints',
+    pointsAwarded,
+    '',
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    '',
+    '',
+    tileImageUrl,
+    1,
+    '',
+    '',
+    '',
+    '',
+    '',
+    sanitize(updatedHtml),
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
+  ];
+
 	upload(cieValues);
 }
 
