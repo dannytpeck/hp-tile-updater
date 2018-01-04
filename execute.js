@@ -121,7 +121,7 @@ function scrape_tile(tile_loaded) {
 			.replace(/TARGETCLASS/, "'" + program_updates.programs[p].update.target_class + "'")
 			.replace(/PROGRAMNAME/, "'" + program_updates.programs[p].update.program_name + "'")
 			.replace(/PROGRAMLINK/, "'" + program_updates.programs[p].update.program_link + "'")
-			.replace(/PROGRAMDESC/, `"${program_updates.programs[p].update.program_desc}"`);
+			.replace(/PROGRAMIMAGE/, `"${program_updates.programs[p].update.program_image}"`);
 
 		setTimeout(function() {
       driver.executeScript(updateInstance);
