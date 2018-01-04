@@ -8,7 +8,7 @@ const tileImageUrl = TILEIMAGEURL;
 const targetClass = TARGETCLASS;
 const programName = PROGRAMNAME;
 const programLink = PROGRAMLINK;
-const programDesc = PROGRAMDESC;
+const programImage = PROGRAMIMAGE;
 /* eslint-enable no-undef */
 
 // All the changes to the HP Tiles occur here. Edit as needed
@@ -16,61 +16,22 @@ function updateHtml() {
   const tileDescription = document.querySelector('.description-text');
 	const originalHtml = tileDescription.innerHTML;
 
-  const lifestyleFundamentalsSidebar = document.querySelectorAll('.hp_sidepanel p')[0];
-  const personalPerformanceSidebar = document.querySelectorAll('.hp_sidepanel p')[1];
+  // Grab the coaching programs container
+  const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
-	const registrationLinkHtml = '<a style="text-decoration:underline" href="' + programLink + '" target="_new">' + programName + '</a>';
+  // Create the new program HTML
+  var programHtml = `
+    <div class="coaching-program-callout budget_basic" style="margin-bottom: 20px;">
+      <a href="/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DBudget+Basics%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life" target="_blank">
+        <img src="https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/hp-tile-budget-basics.png" alt="" style="width: 100%">
+      </a>
+    </div>
+  `;
 
-  // Update registration link and short description from JSON file
-  const coachingProgram = document.querySelector('p[class*="' + targetClass + '"]');
-  if (coachingProgram) {
-    coachingProgram.querySelector('.hp_short').innerHTML = programDesc;
-    coachingProgram.querySelector('strong').innerHTML = registrationLinkHtml;
+  // Add the new program to the container
+  if (coachingProgramsContainer) {
+    coachingProgramsContainer.innerHTML += programHtml;
   }
-
-  /* Commenting out since Fast Fitness is being postponed to January
-  // TODO: Add Fast Fitness to Personal Performance sidebar
-  if (programName === 'Fast Fitness') {
-    if (personalPerformanceSidebar.innerHTML.includes(programName)) {
-      console.log('Link present in list; Update was already applied.');
-    } else {
-      personalPerformanceSidebar.innerHTML += '<br>' + registrationLinkHtml;
-
-      // If present, remove the Coming in 2017 text, since we just added a coaching program
-      personalPerformanceSidebar.innerHTML = personalPerformanceSidebar.innerHTML.replace('<em>Coming in 2017</em><br>', '');
-    }
-  }
-  */
-
-
-  // TODO: Add Adventures in Parenting to the tile in both places
-  if (programName === 'Adventures in Parenting') {
-
-    // Confirm we're on the Growth tile and that it doesn't contain Adventures coaching program
-    if (originalHtml.includes('Growth') && !originalHtml.includes('Adventures')) {
-
-      // Grab the Leadership Development program
-      const leadershipP = document.querySelector('.leadership_d');
-
-      // Create p tag for the new program
-      let p = document.createElement('p');
-      p.className = targetClass;
-      p.innerHTML = '<strong>' + registrationLinkHtml + '</strong><br><span class="hp_short">' + programDesc + '</span>';
-
-      // Insert program after Leadership Development p tag
-      document.querySelector('.hp_scrollbox').insertBefore(p, leadershipP.nextSibling);
-
-      // Insert Link after the other links in the appropriate sidebar
-      if (personalPerformanceSidebar.innerHTML.includes(programName)) {
-        console.log('Link present in list; Update was already applied.');
-      } else {
-        personalPerformanceSidebar.innerHTML += '<br>' + registrationLinkHtml;
-      }
-
-    }
-
-  }
-
 
 	// Only move to the next step if the html has been changed by the updates
   const updatedHtml = tileDescription.innerHTML;

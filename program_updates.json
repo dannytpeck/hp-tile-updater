@@ -1,14 +1,25 @@
 ﻿{
 	"programs": [
 		{
-			"title": "Growth & Development",
-			"title_html": "Growth &amp; Development",
-			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-18-06-44-52/Growth_5F00_Development_5F00_Tile.png",
+			"title": "Money & Prosperity",
+			"title_html": "Money &amp; Prosperity",
+			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-01/Money-_2600_amp_3B00_-Prosperity-Tile.png",
 			"update": {
-				"target_class": "adventures_parenting",
-				"program_name": "Adventures in Parenting",
-				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DAdventures%20in%20Parenting%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
-				"program_desc": "Be the best parent you can be through all stages of your child's life."
+				"target_class": "healthy_wealthy_and_wise",
+				"program_name": "Healthy Wealthy and Wise",
+				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DHealthy%2C%20Wealthy%20and%20Wise%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
+				"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/hp-tile-healthy-wealthy-wise.png"
+			}
+		},
+		{
+			"title": "Money & Prosperity",
+			"title_html": "Money &amp; Prosperity",
+			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-01/Money-_2600_amp_3B00_-Prosperity-Tile.png",
+			"update": {
+				"target_class": "savings_101",
+				"program_name": "Savings 101",
+				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DSavings%20101%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
+				"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/hp-tile-savings-101.png"
 			}
 		}
 	]
