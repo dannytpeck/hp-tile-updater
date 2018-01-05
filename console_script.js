@@ -28,8 +28,8 @@ function updateHtml() {
     </div>
   `;
 
-  // Add the new program to the container
-  if (coachingProgramsContainer) {
+  // Only add the new program if it doesn't already exist
+  if (!originalHtml.includes(targetClass)) {
     coachingProgramsContainer.innerHTML += programHtml;
   }
 
