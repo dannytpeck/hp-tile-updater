@@ -5,8 +5,8 @@ const webdriver = require('selenium-webdriver'),
 	until = webdriver.until;
 const fs = require('fs');
 
-const all_clients = require('./test_clients.json');
-//const all_clients = require('./all_clients.json');
+//const all_clients = require('./test_clients.json');
+const all_clients = require('./all_clients.json');
 const program_updates = require('./program_updates.json');
 
 let i = 0; // Site
