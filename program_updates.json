@@ -1,26 +1,28 @@
 ﻿{
 	"programs": [
 		{
-			"title": "Money & Prosperity",
-			"title_html": "Money &amp; Prosperity",
-			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-01/Money-_2600_amp_3B00_-Prosperity-Tile.png",
-			"update": {
-				"target_class": "healthy_wealthy_and_wise",
-				"program_name": "Healthy Wealthy and Wise",
-				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DHealthy%2C%20Wealthy%20and%20Wise%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
-				"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/hp-tile-healthy-wealthy-wise.png"
-			}
+			"title": "Health & Fitness",
+			"title_html": "Health &amp; Fitness",
+			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-66-16-19/Health-_2600_amp_3B00_-Fitness-Tile.png",
+			"update": ""
 		},
 		{
 			"title": "Money & Prosperity",
 			"title_html": "Money &amp; Prosperity",
 			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-01/Money-_2600_amp_3B00_-Prosperity-Tile.png",
-			"update": {
-				"target_class": "savings_101",
-				"program_name": "Savings 101",
-				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DSavings%20101%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
-				"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/hp-tile-savings-101.png"
-			}
+			"update": ""
+		},
+		{
+			"title": "Growth & Development",
+			"title_html": "Growth &amp; Development",
+			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-04/Growth-_2600_amp_3B00_-Development-Tile.png",
+			"update": ""
+		},
+		{
+			"title": "Contribution & Sustainability",
+			"title_html": "Contribution &amp; Sustainability",
+			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-06/Contribution-_2600_amp_3B00_-Sustainability-Tile.png",
+			"update": ""
 		}
 	]
 }
