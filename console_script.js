@@ -29,7 +29,7 @@ function updateHtml() {
   `;
 
   // Only add the new program if it doesn't already exist
-  if (!originalHtml.includes(targetClass)) {
+  if (targetClass !== 'undefined' && !originalHtml.includes(targetClass)) {
     coachingProgramsContainer.innerHTML += programHtml;
   }
 

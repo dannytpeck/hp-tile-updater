@@ -125,28 +125,25 @@ function scrape_tile(tile_loaded) {
 
 		setTimeout(function() {
       driver.executeScript(updateInstance);
+      console.log('Program update complete');
     }, 5000);
 
-		driver.wait(until.elementLocated(By.css('a[href="' + program_updates.programs[p].update.program_link + '"]')), 14000).then(function() {
-			setTimeout(function() {
-				driver.findElement(By.css('a[class="item-info-close"]')).click();
-				console.log('Program update complete');
-				if (program_updates.programs[p+1]) {
-					p++;
-					driver.get('https://mywellmetrics.com/Home');
-					driver.wait(until.elementLocated(By.css('#otherthings .item-title')), 12000).then(function() {
-						let homepage_loaded = driver.findElement(By.css('#otherthings .item-title'));
-						locate_tile(homepage_loaded);
-					});
-				} else {
-					console.log('Finished updating programs');
-					p = 0;
-					next_site();
-				}
-			}, 5000);
-		});
-	}).catch(function(error) {
-		console.log(error.message);
+		// after 10 seconds, move on to next program/site
+		setTimeout(function() {
+			driver.findElement(By.css('a[class="item-info-close"]')).click();
+			if (program_updates.programs[p+1]) {
+				p++;
+				driver.get('https://mywellmetrics.com/Home');
+				driver.wait(until.elementLocated(By.css('#otherthings .item-title')), 12000).then(function() {
+					let homepage_loaded = driver.findElement(By.css('#otherthings .item-title'));
+					locate_tile(homepage_loaded);
+				});
+			} else {
+				console.log('Finished updating programs');
+				p = 0;
+				next_site();
+			}
+		}, 10000);
 	});
 }
 
