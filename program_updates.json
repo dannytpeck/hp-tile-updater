@@ -1,18 +1,6 @@
 ﻿{
 	"programs": [
 		{
-			"title": "Health & Fitness",
-			"title_html": "Health &amp; Fitness",
-			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-66-16-19/Health-_2600_amp_3B00_-Fitness-Tile.png",
-			"update": ""
-		},
-		{
-			"title": "Money & Prosperity",
-			"title_html": "Money &amp; Prosperity",
-			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-01/Money-_2600_amp_3B00_-Prosperity-Tile.png",
-			"update": ""
-		},
-		{
 			"title": "Growth & Development",
 			"title_html": "Growth &amp; Development",
 			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-04/Growth-_2600_amp_3B00_-Development-Tile.png",
@@ -22,7 +10,12 @@
 			"title": "Contribution & Sustainability",
 			"title_html": "Contribution &amp; Sustainability",
 			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-06/Contribution-_2600_amp_3B00_-Sustainability-Tile.png",
-			"update": ""
+			"update": {
+				"target_class": "be_change_maker",
+				"program_name": "Be a Change Maker",
+				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DBe%20a%20Change%20Maker%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
+				"program_image": "https://mywellnessnumbers.com/aduro/coaching/Change-Maker-HP-Tile.jpg"
+			}
 		}
 	]
 }
