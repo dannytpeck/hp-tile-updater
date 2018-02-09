@@ -27,21 +27,10 @@ function updateHtml() {
       </a>
     </div>
   `;
-  const bcmHtml = `<div class="coaching-program-callout be_change_maker" style="margin-bottom: 20px;"><a href="/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DBe%20a%20Change%20Maker%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life" target="_blank"><img src="https://mywellnessnumbers.com/aduro/coaching/Change-Maker-HP-Tile.jpg" alt="" style="width: 100%">       </a></div>`;
-  const bcmHtml2 = `<div class="coaching-program-callout be_change_maker" style="margin-bottom: 20px;">       <a href="/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DBe%20a%20Change%20Maker%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life" target="_blank">         <img src="https://mywellnessnumbers.com/aduro/coaching/Change-Maker-HP-Tile.jpg" alt="" style="width: 100%">       </a>     </div>`;
 
   // Only add the new program if it doesn't already exist
   if (targetClass !== 'undefined' && !originalHtml.includes(targetClass)) {
     coachingProgramsContainer.innerHTML += programHtml;
-  }
-
-  // look for and remove Be a Change Maker from Growth & Development
-  // TODO: Remove this next time (after 02/08), Gadget
-  if (originalHtml.includes('Development focuses') && originalHtml.includes(bcmHtml)) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(bcmHtml, '');
-  }
-  if (originalHtml.includes('Development focuses') && originalHtml.includes(bcmHtml2)) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(bcmHtml2, '');
   }
 
 	// Only move to the next step if the html has been changed by the updates
