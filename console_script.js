@@ -19,6 +19,50 @@ function updateHtml() {
   // Grab the coaching programs container
   const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
+  //// BEGIN update all four tiles ////
+  const appCta = 'https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/Ember_CTA.png';
+  const appCta2 = 'https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/aduro_app_CTA.png';
+  const oneOneCta = 'https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/Coaching_CTA.png';
+
+  // Remove this junk after 2/9 update
+  const pineapple = `alt="AMP callout"`;
+  const pineapple2 = `alt="AMP callout" style="width: 100%;"`;
+  const pineapple3 = `alt="Ember callout"`;
+
+  if(!originalHtml.includes(pineapple2)) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(pineapple , pineapple2);
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(pineapple3 , pineapple2);
+  }
+
+  // are we in Health & Fitness?
+  if (originalHtml.includes('Fitness focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_HF.png')
+  }
+  // are we in Money & Prosperity?
+  if (originalHtml.includes('Prosperity focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_MP.png')
+  }
+  // are we in Growth & Development?
+  if (originalHtml.includes('Development focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_GD.png')
+  }
+  // are we in Contribution & Sustainability?
+  if (originalHtml.includes('Sustainability focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_CS.png')
+  }
+
+  //// END update all four tiles ////
+
+
+  //// BEGIN add coaching program ////
   // Create the new program HTML
   const programHtml = `
     <div class="coaching-program-callout ${targetClass}" style="margin-bottom: 20px;">
@@ -32,18 +76,19 @@ function updateHtml() {
   if (targetClass !== 'undefined' && !originalHtml.includes(targetClass)) {
     coachingProgramsContainer.innerHTML += programHtml;
   }
+  //// END add coaching program ////
 
 	// Only move to the next step if the html has been changed by the updates
   const updatedHtml = tileDescription.innerHTML;
   if (updatedHtml !== originalHtml) {
-    getInfo(updatedHtml);
+    pushToLimeade(updatedHtml);
   }
 
 }
 
 // Obtains id, displaypriority, and point value. Uses updated values to send
 // an upload request to Limeade
-function getInfo(updatedHtml) {
+function pushToLimeade(updatedHtml) {
 	const nodes = [].slice.call(document.querySelectorAll('#otherthings .item-title'));
 	const url = window.location.href;
 	const eventId = url.substring(url.search('=') + 1, url.length);
