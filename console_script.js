@@ -19,47 +19,42 @@ function updateHtml() {
   // Grab the coaching programs container
   const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
-  //// BEGIN update all four tiles ////
-  const appCta = 'https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/Ember_CTA.png';
-  const appCta2 = 'https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/aduro_app_CTA.png';
-  const oneOneCta = 'https://mywellnessnumbers.com/HumanPerformance/images/2018_banners/Coaching_CTA.png';
 
-  // Remove this junk after 2/9 update
-  const pineapple = `alt="AMP callout"`;
-  const pineapple2 = `alt="AMP callout" style="width: 100%;"`;
-  const pineapple3 = `alt="Ember callout"`;
 
-  if(!originalHtml.includes(pineapple2)) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(pineapple , pineapple2);
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(pineapple3 , pineapple2);
-  }
+  //// BEGIN get all images to reference FTP ////
+  const oldBodyImageBeauImage = 'https://challenges.mywellnessnumbers.com/images/BodyImageBeautiful_New-Tile.jpg';
+  const newBodyImageBeauImage = 'https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-body-image-beautiful.png';
 
-  // are we in Health & Fitness?
-  if (originalHtml.includes('Fitness focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_HF.png')
-  }
-  // are we in Money & Prosperity?
-  if (originalHtml.includes('Prosperity focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_MP.png')
-  }
-  // are we in Growth & Development?
+  const oldLettingGoImage = 'https://challenges.mywellnessnumbers.com/images/LettingGoForgiveForget_New-Tile.jpg';
+  const newLettingGoImage = 'https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-letting-go.png';
+
+  const oldChangeMakerImage = 'https://mywellnessnumbers.com/aduro/coaching/Change-Maker-HP-Tile.jpg';
+  const newChangeMakerImage = 'https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-change-maker.png';
+
+  const newFtpLocation = 'banners';
+
+  // change challenge bank image urls to FTP urls
   if (originalHtml.includes('Development focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_GD.png')
-  }
-  // are we in Contribution & Sustainability?
-  if (originalHtml.includes('Sustainability focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(appCta2, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOneCta, 'https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_CS.png')
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oldBodyImageBeauImage, newBodyImageBeauImage);
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oldLettingGoImage, newLettingGoImage);
   }
 
-  //// END update all four tiles ////
+  // change image src to use generic folder (no year reference)
+  if (originalHtml.includes('2018_banners')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/2018_banners/g, newFtpLocation);
+  }
+
+  // change Change Maker to use proper folder
+  if (originalHtml.includes('Sustainability focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oldChangeMakerImage, newChangeMakerImage);
+  }
+
+  // change .jpg to .png filename
+  if (originalHtml.includes('.jpg')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/jpg/g, 'png');
+  }
+
+  //// END get all images to reference FTP ////
 
 
   //// BEGIN add coaching program ////
