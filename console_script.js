@@ -19,7 +19,42 @@ function updateHtml() {
   // Grab the coaching programs container
   const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
-  
+
+
+  //// BEGIN get all images to reference FTP ////
+  const oldBodyImageBeauImage = 'https://challenges.mywellnessnumbers.com/images/BodyImageBeautiful_New-Tile.jpg';
+  const newBodyImageBeauImage = 'https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-body-image-beautiful.png';
+
+  const oldLettingGoImage = 'https://challenges.mywellnessnumbers.com/images/LettingGoForgiveForget_New-Tile.jpg';
+  const newLettingGoImage = 'https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-letting-go.png';
+
+  const oldChangeMakerImage = 'https://mywellnessnumbers.com/aduro/coaching/Change-Maker-HP-Tile.jpg';
+  const newChangeMakerImage = 'https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-change-maker.png';
+
+  const newFtpLocation = 'banners';
+
+  // change challenge bank image urls to FTP urls
+  if (originalHtml.includes('Development focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oldBodyImageBeauImage, newBodyImageBeauImage);
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oldLettingGoImage, newLettingGoImage);
+  }
+
+  // change image src to use generic folder (no year reference)
+  if (originalHtml.includes('2018_banners')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/2018_banners/g, newFtpLocation);
+  }
+
+  // change Change Maker to use proper folder
+  if (originalHtml.includes('Sustainability focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(oldChangeMakerImage, newChangeMakerImage);
+  }
+
+  // change .jpg to .png filename
+  if (originalHtml.includes('.jpg')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/jpg/g, 'png');
+  }
+
+  //// END get all images to reference FTP ////
 
 
   //// BEGIN add coaching program ////
