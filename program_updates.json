@@ -5,11 +5,11 @@
 			"title_html": "Health &amp; Fitness",
 			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-66-16-19/Health-_2600_amp_3B00_-Fitness-Tile.png",
 			"update": {
-+				"target_class": "fast_fitness",
-+				"program_name": "Fast Fitness",
-+				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DFast%20Fitness%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
-+				"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-fast-fitness.png"
-+			}
+				"target_class": "fast_fitness",
+				"program_name": "Fast Fitness",
+				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DFast%20Fitness%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
+				"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-fast-fitness.png"
+			}
 		}
 	]
 }
