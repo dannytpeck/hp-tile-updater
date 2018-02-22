@@ -19,6 +19,27 @@ function updateHtml() {
   // Grab the coaching programs container
   const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
+  //// BEGIN Operation Destroyer updates - remove after 2/23/2018 updates ////
+
+  // BEGIN Coaching content text updates //
+  const newFocusedText = 'Start by clicking one of our focused 6-week Paths below';
+  const newDetailsText = 'flag! Each features six interactive sessions along with weekly surveys (completion required to earn points).';
+
+  tileDescription = tileDescription.replace('Start by clicking one of our focused Paths below', newFocusedText);
+  tileDescription = tileDescription.replace('flag!', newDetailsText);
+
+  // END Coaching content text updates //
+
+  // BEGIN move group coaching CTA //
+
+
+
+  // END move group coaching CTA //
+
+
+
+  //// END Operation Destroyer updates ////
+
 
   //// BEGIN add coaching program ////
   // Create the new program HTML
