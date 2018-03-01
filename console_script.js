@@ -20,51 +20,6 @@ function updateHtml() {
   const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
 
-  //// BEGIN Operation Destroyer updates - remove after 2/23/2018 updates ////
-
-  // BEGIN Coaching content text updates //
-  const newFocusedText = 'Start by clicking one of our focused 6-week Paths below';
-  const newDetailsText = 'flag! Each features six interactive sessions along with weekly surveys (completion required to earn points).</strong>';
-
-  tileDescription.innerHTML = tileDescription.innerHTML.replace('Start by clicking one of our focused Paths below', newFocusedText);
-  tileDescription.innerHTML = tileDescription.innerHTML.replace('flag!</strong>', newDetailsText);
-
-  // END Coaching content text updates //
-
-  // BEGIN move group coaching CTA //
-  const coachingComment = '<!-- COACHING PROGRAMS -->';
-
-  const oneOnOneCoachingHF = '<!-- ONE-ON-ONE CALLOUT --> <div class="one-on-one-callout" style="margin-bottom: 20px;"> <a href="/api/redirect?url=https%3A//wellmetricssurveys.secure.force.com/Calendar/ProgramCalendarV2%3Fe=%5Be%5D%26formType=%26calendarName=Ignite+Your+Life%26participantCode=%5Bparticipantcode%5D" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_HF.png" alt="One-on-One Coaching" class="one-on-one-image" style="width: 100%;"></a> </div>';
-  const oneOnOneCoachingMF = '<!-- ONE-ON-ONE CALLOUT --> <div class="one-on-one-callout" style="margin-bottom: 20px;"> <a href="/api/redirect?url=https%3A//wellmetricssurveys.secure.force.com/Calendar/ProgramCalendarV2%3Fe=%5Be%5D%26formType=%26calendarName=Ignite+Your+Life%26participantCode=%5Bparticipantcode%5D" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_MP.png" alt="One-on-One Coaching" class="one-on-one-image" style="width: 100%;"></a> </div>';
-  const oneOnOneCoachingGD = '<!-- ONE-ON-ONE CALLOUT --> <div class="one-on-one-callout" style="margin-bottom: 20px;"> <a href="/api/redirect?url=https%3A//wellmetricssurveys.secure.force.com/Calendar/ProgramCalendarV2%3Fe=%5Be%5D%26formType=%26calendarName=Ignite+Your+Life%26participantCode=%5Bparticipantcode%5D" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_GD.png" alt="One-on-One Coaching" class="one-on-one-image" style="width: 100%;"></a> </div>';
-  const oneOnOneCoachingCS = '<!-- ONE-ON-ONE CALLOUT --> <div class="one-on-one-callout" style="margin-bottom: 20px;"> <a href="/api/redirect?url=https%3A//wellmetricssurveys.secure.force.com/Calendar/ProgramCalendarV2%3Fe=%5Be%5D%26formType=%26calendarName=Ignite+Your+Life%26participantCode=%5Bparticipantcode%5D" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/Coaching_CTA_CS.png" alt="One-on-One Coaching" class="one-on-one-image" style="width: 100%;"></a> </div>';
-
-  // are we in Health & Fitness?
-  if (originalHtml.includes('Fitness focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOnOneCoachingHF, '');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(coachingComment, oneOnOneCoachingHF + coachingComment);
-  }
-  // are we in Money & Prosperity?
-  if (originalHtml.includes('Prosperity focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOnOneCoachingMF, '');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(coachingComment, oneOnOneCoachingMF + coachingComment);
-  }
-  // are we in Growth & Development?
-  if (originalHtml.includes('Development focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOnOneCoachingGD, '');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(coachingComment, oneOnOneCoachingGD + coachingComment);
-  }
-  // are we in Contribution & Sustainability?
-  if (originalHtml.includes('Sustainability focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(oneOnOneCoachingCS, '');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(coachingComment, oneOnOneCoachingCS + coachingComment);
-  }
-
-  // END move group coaching CTA //
-
-  //// END Operation Destroyer updates ////
-
-
   //// BEGIN add coaching program ////
   // Create the new program HTML
   const programHtml = `
