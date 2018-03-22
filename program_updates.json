@@ -4,34 +4,25 @@
 			"title": "Health & Fitness",
 			"title_html": "Health &amp; Fitness",
 			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-66-16-19/Health-_2600_amp_3B00_-Fitness-Tile.png",
-			"update": {
-				"target_class": "not_breaking_bread",
-				"program_name": "Not Breaking Bread",
-				"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DNot%20Breaking%20Bread%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
-				"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-breaking-bread.png"
-			}
+			"update": ""
+		},
+		{
+			"title": "Money & Prosperity",
+			"title_html": "Money &amp; Prosperity",
+			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-01/Money-_2600_amp_3B00_-Prosperity-Tile.png",
+			"update": ""
 		},
 		{
 			"title": "Growth & Development",
 			"title_html": "Growth &amp; Development",
 			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-04/Growth-_2600_amp_3B00_-Development-Tile.png",
-			"update": {
-					"target_class": "simple_gratitude",
-					"program_name": "Practice Simple Gratitude",
-					"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DPractice%20Simple%20Gratitude%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
-					"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-simple-gratitude.png"
-			}
+			"update": ""
 		},
 		{
 			"title": "Contribution & Sustainability",
 			"title_html": "Contribution &amp; Sustainability",
 			"tile_image": "/cfs-file.ashx/__key/CommunityServer-Components-PostAttachments/00-19-89-44-06/Contribution-_2600_amp_3B00_-Sustainability-Tile.png",
-			"update": {
-					"target_class": "going_vegetarian",
-					"program_name": "Going Vegetarian",
-					"program_link": "/api/Redirect?url=https%3A%2F%2Fwellmetricssurveys.secure.force.com%2FEvent%2FCoachingEventCheckin%3Fp%3D%5Be%5D%26cpName%3DGoing%20Vegetarian%26participantCode%3D%5Bparticipantcode%5D%26eventType%3DIgnite%20Your%20Life",
-					"program_image": "https://mywellnessnumbers.com/HumanPerformance/images/banners/hp-tile-going-vegetarian.png"
-			}
+			"update": ""
 		}
 	]
 }
