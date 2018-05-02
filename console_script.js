@@ -32,8 +32,11 @@ function updateHtml() {
     tileDescription.innerHTML = tileDescription.innerHTML.replace(/EMBER CALLOUT/g, 'ADURO APP CALLOUT');
     tileDescription.innerHTML = tileDescription.innerHTML.replace(/ember-callout/g, 'aduro-app-callout');
   }
+  // update other straggler ember references
+  if (originalHtml.includes('https://adurolife.com/ember/')){
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/https:\/\/adurolife.com\/ember\//g, 'https://amp.adurolife.com/referral/limeade-signup');
+  }
 
-  // TODO: Make each app callout reference proper tile color
   // Uncomment aduro app callouts
 
   // are we in Health & Fitness?
