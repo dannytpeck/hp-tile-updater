@@ -16,6 +16,52 @@ function updateHtml() {
   const tileDescription = document.querySelector('.description-text');
 	const originalHtml = tileDescription.innerHTML;
 
+  //// BEGIN uncomment aduro app callout ////
+
+  const commentedAduroAppHF = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
+  const visibleAduroAppHF = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png" alt="AMP callout" style="width: 100%;"></a> </div>';
+  const commentedAduroAppMP = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
+  const visibleAduroAppMP = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png" alt="AMP callout" style="width: 100%;"></a> </div>';
+  const commentedAduroAppGD = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
+  const visibleAduroAppGD = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png" alt="AMP callout" style="width: 100%;"></a> </div>';
+  const commentedAduroAppCS = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
+  const visibleAduroAppCS = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png" alt="AMP callout" style="width: 100%;"></a> </div>';
+
+  // Update straggler ember references
+  if (originalHtml.includes('EMBER CALLOUT')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/EMBER CALLOUT/g, 'ADURO APP CALLOUT');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/ember-callout/g, 'aduro-app-callout');
+  }
+  // update other straggler ember references
+  if (originalHtml.includes('https://adurolife.com/ember/')){
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/https:\/\/adurolife.com\/ember\//g, 'https://amp.adurolife.com/referral/limeade-signup');
+  }
+
+  // Uncomment aduro app callouts
+
+  // are we in Health & Fitness?
+  if (originalHtml.includes('Fitness focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppHF, visibleAduroAppHF);
+  }
+
+  // are we in Money & Prosperity?
+  if (originalHtml.includes('Prosperity focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppMP, visibleAduroAppMP);
+  }
+
+  // are we in Growth & Development?
+  if (originalHtml.includes('Development focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppGD, visibleAduroAppGD);
+  }
+
+  // are we in Contribution & Sustainability?
+  if (originalHtml.includes('Sustainability focuses')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppCS, visibleAduroAppCS);
+  }
+
+  //// END uncomment aduro app callout ////
+
+
   // Grab the coaching programs container
   const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
