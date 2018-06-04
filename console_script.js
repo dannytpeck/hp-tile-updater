@@ -36,6 +36,11 @@ function updateHtml() {
   if (originalHtml.includes('https://adurolife.com/ember/')){
     tileDescription.innerHTML = tileDescription.innerHTML.replace(/https:\/\/adurolife.com\/ember\//g, 'https://amp.adurolife.com/referral/limeade-signup');
   }
+  // Update AMP references
+  if (originalHtml.includes('AMP CALLOUT')) {
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/AMP CALLOUT/g, 'ADURO APP CALLOUT');
+    tileDescription.innerHTML = tileDescription.innerHTML.replace(/AMP-callout/g, 'aduro-app-callout');
+  }
 
   // Uncomment aduro app callouts
 
