@@ -5,8 +5,8 @@ const webdriver = require('selenium-webdriver'),
 	until = webdriver.until;
 const fs = require('fs');
 
-//const all_clients = require('./test_clients.json');
-const all_clients = require('./all_clients.json');
+const all_clients = require('./test_clients.json');
+//const all_clients = require('./all_clients.json');
 const program_updates = require('./program_updates.json');
 
 let i = 0; // Site
@@ -68,10 +68,10 @@ function locate_tile(homepage_loaded) {
 	homepage_ready.then(function(fulfilled) {
 		console.log(fulfilled);
 
-		driver.findElement(By.css('a[title*="' + program_updates.programs[p].title + '"]')).then(function() {
+		driver.findElement(By.css('a[aria-label*="' + program_updates.programs[p].title + '"]')).then(function() {
 			console.log(program_updates.programs[p].title + ' tile located...');
 
-			driver.findElement(By.css('a[title*="' + program_updates.programs[p].title + '"]')).click();
+			driver.findElement(By.css('a[aria-label*="' + program_updates.programs[p].title + '"]')).click();
 
 			driver.wait(until.elementLocated(By.css('#modal_overlay .description-text')), 12000).then(function() {
 				let tile_loaded = driver.findElement(By.css('#modal_overlay .description-text'));
