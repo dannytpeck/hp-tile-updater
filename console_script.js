@@ -27,7 +27,7 @@ function updateHtml() {
       breakingBread.parentElement.removeChild(breakingBread);
     }
   }
-  
+
 	// Only move to the next step if the html has been changed by the updates
   const updatedHtml = tileDescription.innerHTML;
   if (updatedHtml !== originalHtml) {
@@ -50,12 +50,14 @@ function pushToLimeade(updatedHtml) {
     pointsAwarded = 0;
   }
 
-	let displayPriority;
-	nodes.map((tile, i) => {
-		if (tile.querySelector('h3').innerHTML === tileTitleHtml) {
-			displayPriority = i + 1;
-		}
-	});
+  // This is a hacky fix but 90% of HP tiles are just DP 1 and this at least
+  // makes sure that they'll always be together!
+	let displayPriority = 1;
+	// nodes.map((tile, i) => {
+	// 	if (tile.querySelector('h3').innerHTML === tileTitleHtml) {
+	// 		displayPriority = i + 1;
+	// 	}
+	// });
 
   const cieValues = [
     employerName,
