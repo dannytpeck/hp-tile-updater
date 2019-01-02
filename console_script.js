@@ -16,77 +16,18 @@ function updateHtml() {
   const tileDescription = document.querySelector('.description-text');
 	const originalHtml = tileDescription.innerHTML;
 
-  //// BEGIN uncomment aduro app callout ////
-
-  const commentedAduroAppHF = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
-  const visibleAduroAppHF = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_HF.png" alt="AMP callout" style="width: 100%;"></a> </div>';
-  const commentedAduroAppMP = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
-  const visibleAduroAppMP = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_MP.png" alt="AMP callout" style="width: 100%;"></a> </div>';
-  const commentedAduroAppGD = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
-  const visibleAduroAppGD = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_GD.png" alt="AMP callout" style="width: 100%;"></a> </div>';
-  const commentedAduroAppCS = '<!-- ADURO APP CALLOUT --> <!-- <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png" alt="AMP callout" style="width: 100%;"></a> </div> -->';
-  const visibleAduroAppCS = '<!-- ADURO APP CALLOUT --> <div class="aduro-app-callout" style="padding: 10px 10px; margin: 40 auto 20 auto;"> <a href="https://amp.adurolife.com/referral/limeade-signup" target="_blank"><img src="https://mywellnessnumbers.com/HumanPerformance/images/banners/App_CTA_CS.png" alt="AMP callout" style="width: 100%;"></a> </div>';
-
-  // Update straggler ember references
-  if (originalHtml.includes('EMBER CALLOUT')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(/EMBER CALLOUT/g, 'ADURO APP CALLOUT');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(/ember-callout/g, 'aduro-app-callout');
-  }
-  // update other straggler ember references
-  if (originalHtml.includes('https://adurolife.com/ember/')){
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(/https:\/\/adurolife.com\/ember\//g, 'https://amp.adurolife.com/referral/limeade-signup');
-  }
-  // Update AMP references
-  if (originalHtml.includes('AMP CALLOUT')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(/AMP CALLOUT/g, 'ADURO APP CALLOUT');
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(/AMP-callout/g, 'aduro-app-callout');
-  }
-
-  // Uncomment aduro app callouts
-
-  // are we in Health & Fitness?
-  if (originalHtml.includes('Fitness focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppHF, visibleAduroAppHF);
-  }
-
-  // are we in Money & Prosperity?
-  if (originalHtml.includes('Prosperity focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppMP, visibleAduroAppMP);
-  }
-
-  // are we in Growth & Development?
-  if (originalHtml.includes('Development focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppGD, visibleAduroAppGD);
-  }
-
-  // are we in Contribution & Sustainability?
-  if (originalHtml.includes('Sustainability focuses')) {
-    tileDescription.innerHTML = tileDescription.innerHTML.replace(commentedAduroAppCS, visibleAduroAppCS);
-  }
-
-  //// END uncomment aduro app callout ////
-
-
   // Grab the coaching programs container
   const coachingProgramsContainer = document.querySelector('.coaching-programs-container');
 
-
-  //// BEGIN add coaching program ////
-  // Create the new program HTML
-  const programHtml = `
-    <div class="coaching-program-callout ${targetClass}" style="margin-bottom: 20px;">
-      <a href="${programLink}" target="_blank">
-        <img src="${programImage}" alt="" style="width: 100%">
-      </a>
-    </div>
-  `;
-
-  // Only add the new program if it doesn't already exist
-  if (targetClass !== 'undefined' && !originalHtml.includes(targetClass)) {
-    coachingProgramsContainer.innerHTML += programHtml;
+  // Are we in Health & Fitness?
+  if (originalHtml.includes('Fitness focuses')) {
+    // Remove Not Breaking Bread coaching program if it exists
+    const breakingBread = document.querySelector('.not_breaking_bread');
+    if (breakingBread) {
+      breakingBread.parentElement.removeChild(breakingBread);
+    }
   }
-  //// END add coaching program ////
-
+  
 	// Only move to the next step if the html has been changed by the updates
   const updatedHtml = tileDescription.innerHTML;
   if (updatedHtml !== originalHtml) {
@@ -192,11 +133,11 @@ function upload(cieValues) {
 function sanitize(code) {
   return code
     .replace(/\r?\n|\r/g, ' ')     // Strip out carriage returns and newlines
-    .replace(/\,/g, '&#44;')       // Escape commas since we're using a csv
+    .replace(/,/g, '&#44;')       // Escape commas since we're using a csv
     .replace(/\u2018/g, '\'')      // Left single quote
     .replace(/\u2019/g, '\'')      // Right single quote
-    .replace(/\u201C/g, '\"')      // Left double quote
-    .replace(/\u201D/g, '\"')      // Right double quote
+    .replace(/\u201C/g, '"')      // Left double quote
+    .replace(/\u201D/g, '"')      // Right double quote
     .replace(/\u2026/g, '...')     // Ellipsis
     .replace(/\u2013/g, '&ndash;') // Long dash
     .replace(/\u2014/g, '&mdash;') // Longer dash
