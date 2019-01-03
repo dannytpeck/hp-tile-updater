@@ -5,8 +5,7 @@ const webdriver = require('selenium-webdriver'),
 	until = webdriver.until;
 const fs = require('fs');
 
-const all_clients = require('./test_clients.json');
-//const all_clients = require('./all_clients.json');
+const all_clients = require('./clients.json');
 const program_updates = require('./program_updates.json');
 
 let i = 0; // Site
@@ -43,8 +42,8 @@ function sign_in() {
 
 	sign_in_ready.then(function(fulfilled) {
 		console.log(fulfilled);
-		driver.findElement(By.name('ctl00$content$SiteThemeContentFragmentPage1$fragment_3526$ctl01$ctl00$LoginForm1$ctl06$username')).sendKeys(all_clients.clients[i].admin);
-		driver.findElement(By.name('ctl00$content$SiteThemeContentFragmentPage1$fragment_3526$ctl01$ctl00$LoginForm1$ctl06$password')).sendKeys(all_clients.clients[i].password);
+		driver.findElement(By.name('ctl00$content$SiteThemeContentFragmentPage1$fragment_3526$ctl01$ctl00$LoginForm1$ctl06$username')).sendKeys(all_clients.clients[i]['Admin Login']);
+		driver.findElement(By.name('ctl00$content$SiteThemeContentFragmentPage1$fragment_3526$ctl01$ctl00$LoginForm1$ctl06$password')).sendKeys(all_clients.clients[i]['Admin Password']);
 		driver.findElement(By.name('ctl00$content$SiteThemeContentFragmentPage1$fragment_3526$ctl01$ctl00$LoginForm1$ctl06$loginButton')).click();
 		console.log('Logged in...');
 		driver.wait(until.elementLocated(By.css('#otherthings .item-title')), 12000).then(function() {
@@ -81,7 +80,7 @@ function locate_tile(homepage_loaded) {
 			console.log('Tile not found. Skipping update and moving onto the next one...');
 			if (program_updates.programs[p + 1]) {
 				p += 1;
-				driver.get('https://mywellmetrics.com/Home');
+				driver.get(all_clients.clients[i]['Domain'] + '/Home');
 				driver.wait(until.elementLocated(By.css('#otherthings .item-title')), 12000).then(function() {
 					let homepage_loaded = driver.findElement(By.css('#otherthings .item-title'));
 					locate_tile(homepage_loaded);
@@ -113,8 +112,8 @@ function scrape_tile(tile_loaded) {
 
 		// Replace placeholders in console script
 		let updateInstance = updateJS
-			.replace(/EMPLOYERNAME/, "'" + all_clients.clients[i].e + "'")
-			.replace(/EMPLOYERPSK/, "'" + all_clients.clients[i].psk + "'")
+			.replace(/EMPLOYERNAME/, "'" + all_clients.clients[i]['Limeade e='] + "'")
+			.replace(/EMPLOYERPSK/, "'" + all_clients.clients[i]['Limeade PSK'] + "'")
 			.replace(/TILETITLE/, "'" + program_updates.programs[p].title + "'")
 			.replace(/TILETITLEHTML/, "'" + program_updates.programs[p].title_html + "'")
 			.replace(/TILEIMAGEURL/, "'" + program_updates.programs[p].tile_image + "'")
@@ -133,7 +132,7 @@ function scrape_tile(tile_loaded) {
 			driver.findElement(By.css('a[class="item-info-close"]')).click();
 			if (program_updates.programs[p+1]) {
 				p++;
-				driver.get('https://mywellmetrics.com/Home');
+				driver.get(all_clients.clients[i]['Domain'] + '/Home');
 				driver.wait(until.elementLocated(By.css('#otherthings .item-title')), 12000).then(function() {
 					let homepage_loaded = driver.findElement(By.css('#otherthings .item-title'));
 					locate_tile(homepage_loaded);
@@ -151,10 +150,9 @@ function next_site() {
 	driver.get('https://mywellmetrics.com/logout.aspx');
 	if (all_clients.clients[i + 1]) {
 		i++;
-		driver.get('https://mywellmetrics.com/Home')
-			.then(function() {
-        sign_in();
-      });
+		driver.get(all_clients.clients[i]['Domain'] + '/Home').then(function() {
+			sign_in();
+    });
 	} else {
 		console.log('All updates are now complete');
 		driver.quit();
@@ -162,6 +160,6 @@ function next_site() {
 }
 
 //Execute
-driver.get('https://mywellmetrics.com/Home').then(function() {
+driver.get(all_clients.clients[i]['Domain'] + '/Home').then(function() {
 	sign_in();
 });
